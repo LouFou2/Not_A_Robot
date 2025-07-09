@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FresnelPosterised_MAT
+  m_Name: FresnelInstructor
   m_Shader: {fileID: -6465566751694194690, guid: 5e4316656402869468bb7f5d57296c7a,
     type: 3}
   m_Parent: {fileID: 0}
@@ -38,13 +38,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Brighter: 0.107
-    - _CurveAdjust: 0.75
-    - _FresnelPower: 0.32
+    - _Brighter: 0.516
+    - _CurveAdjust: 2.96
+    - _FresnelPower: 1.18
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ScreenSpaceRes: 4
-    - _TonesAmount: 8
+    - _TonesAmount: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

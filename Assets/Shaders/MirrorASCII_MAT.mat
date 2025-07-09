@@ -77,7 +77,7 @@ Material:
     - _BlendPixAndASCII: 1
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Resolution: 128
+    - _Resolution: 512
     - _ToneAmount: 8
     m_Colors:
     - _ASCII_Color: {r: 1, g: 1, b: 1, a: 0}

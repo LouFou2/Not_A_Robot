@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: FresnelPosterised_MAT
+  m_Name: FresnelStarThing
   m_Shader: {fileID: -6465566751694194690, guid: 5e4316656402869468bb7f5d57296c7a,
     type: 3}
   m_Parent: {fileID: 0}
@@ -38,8 +38,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Brighter: 0.107
-    - _CurveAdjust: 0.75
+    - _Brighter: 0.518
+    - _CurveAdjust: 5.91
     - _FresnelPower: 0.32
     - _QueueControl: 0
     - _QueueOffset: 0
