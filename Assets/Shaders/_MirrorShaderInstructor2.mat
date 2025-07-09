@@ -65,6 +65,7 @@ Material:
     - _CastShadows: 0
     - _Cull: 0
     - _DstBlend: 10
+    - _InstructorFader: 0.24
     - _QueueControl: 0
     - _QueueOffset: 0
     - _SrcBlend: 5
