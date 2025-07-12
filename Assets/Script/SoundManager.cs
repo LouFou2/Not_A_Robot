@@ -7,41 +7,40 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private MoveMatchChecker moveMatchChecker;
     [SerializeField] private float matchValue;
     [SerializeField] private AudioSource[] audioSources;
-    [SerializeField] private int sequenceIndex;
+    [SerializeField] private int instructionIndex;
 
     private void OnEnable()
     {
-        MoveMatchChecker.OnTimesUp += HandleTimeUp;
-        MoveMatchChecker.OnReachCheckpoint += HandleOnReachCheckPoint;
+        MainSequenceManager.IdleState += HandleIdle; 
+        MainSequenceManager.NewInstruction += HandleNewInstruction;
+        MainSequenceManager.TimesUp += HandleTimesUp;
     }
 
     private void OnDisable()
     {
-        MoveMatchChecker.OnTimesUp -= HandleTimeUp;
-        MoveMatchChecker.OnReachCheckpoint -= HandleOnReachCheckPoint;
+        MainSequenceManager.IdleState -= HandleIdle;
+        MainSequenceManager.TimesUp -= HandleNewInstruction;
+        MainSequenceManager.TimesUp -= HandleTimesUp;
     }
 
-    // We will use a sequence of events to trigger different sounds
-    // We will also use some float values to drive sound changes
+    // Bunch of specific event (trigger) handlers
 
-    //1. Start - Ambient Sound - plays until checkpoint (play on awake)
-    //2. Checkpoint sound:
-    private void HandleOnReachCheckPoint()
+    private void HandleIdle()
     {
-        //play the checkpoint sound
-        audioSources[2].Play();
-        Debug.Log("checkpoint reached");
-        //buzzing sound starts
-        audioSources[0].Stop();
-        audioSources[1].Play();
+
     }
 
-
-    private void HandleTimeUp()
+    private void HandleNewInstruction()
     {
-        //
+
     }
 
+    private void HandleTimesUp()
+    {
+
+    }
+
+    // "match value" feedback method
 
 
 }

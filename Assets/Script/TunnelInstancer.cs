@@ -9,6 +9,7 @@ public class TunnelInstancer : MonoBehaviour
     [SerializeField] private int backwardCylinderInstances = 3;
     [SerializeField] private float tunnelMoveSpeed = 0.2f;
     [SerializeField] private float rotationOffset = 30f;
+    [SerializeField] private float tunnelRotateSpeed = 0.2f;
 
     private List<GameObject> tunnelSegments = new List<GameObject>();
     private float currentRotation = 0f;
@@ -31,6 +32,7 @@ public class TunnelInstancer : MonoBehaviour
     private void Update()
     {
         MoveTunnel();
+        RotateTunnel();
 
         if (tunnelSegments.Count == 0) return;
 
@@ -57,6 +59,17 @@ public class TunnelInstancer : MonoBehaviour
             if (segment != null)
             {
                 segment.transform.position += Vector3.back * tunnelMoveSpeed * Time.deltaTime;
+            }
+        }
+    }
+
+    private void RotateTunnel()
+    {
+        foreach (GameObject segment in tunnelSegments)
+        {
+            if (segment != null)
+            {
+                segment.transform.Rotate(Vector3.forward, tunnelRotateSpeed * Time.deltaTime, Space.Self);
             }
         }
     }

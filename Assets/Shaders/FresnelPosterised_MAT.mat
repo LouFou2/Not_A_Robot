@@ -38,6 +38,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Alpha: 1
     - _Brighter: 0.107
     - _CurveAdjust: 0.75
     - _FresnelPower: 0.32

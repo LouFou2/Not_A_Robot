@@ -24,10 +24,19 @@ public class MoveMatchChecker : MonoBehaviour
         public bool isMatch = false;
     }
 
-    // we want a acion/ event that can be subscribed to be other scripts called OnTimesUp...
-    public static Action OnTimesUp;
-    public static Action OnReachCheckpoint;
+    private void OnEnable()
+    {
+        MainSequenceManager.IdleState += HandleIdle;
+        MainSequenceManager.NewInstruction += HandleNewInstruction;
+        MainSequenceManager.TimesUp += HandleTimesUp;
+    }
 
+    private void OnDisable()
+    {
+        MainSequenceManager.IdleState -= HandleIdle;
+        MainSequenceManager.TimesUp -= HandleNewInstruction;
+        MainSequenceManager.TimesUp -= HandleTimesUp;
+    }
 
     private void Start()
     {
@@ -56,18 +65,18 @@ public class MoveMatchChecker : MonoBehaviour
                 matchpair.averageMatchValue += matchpair.matchValue;
                 matchpair.averageMatchValue /= time;
 
-                // Check if the match value is within the acceptable threshold
+                /*// Check if the match value is within the acceptable threshold
                 if (time >= duration)
                 {
                     // Fire the OnTimesUp event
-                    OnTimesUp?.Invoke();
+                    timesUp?.Invoke();
 
                     // Handle the time's up logic
                     HandleTimesUp(matchpair);
 
                     // Reset the match pair
                     Reset(matchpair);
-                }
+                }*/
             }
         }
 
@@ -100,10 +109,23 @@ public class MoveMatchChecker : MonoBehaviour
         }
         return isMatch;
     }
-    
-    private void HandleTimesUp(Matchpair matchpair)
+
+    private void HandleIdle()
     {
-        matchpair.isMatch = matchpair.averageMatchValue <= matchpair.closeEnoughThreshold;
+
+    }
+
+    private void HandleNewInstruction()
+    {
+
+    }
+
+    private void HandleTimesUp()
+    {
+        // *** TODO::: We need to deal with how the final matching happens when time is up !!!
+
+        /*Matchpair matchpair = ?
+        matchpair.isMatch = matchpair.averageMatchValue <= matchpair.closeEnoughThreshold;*/
     }
 
 
